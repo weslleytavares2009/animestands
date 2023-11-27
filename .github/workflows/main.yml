@@ -1,0 +1,22 @@
+name: Execute Script
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Executa a cada hora
+
+jobs:
+  execute-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.6  # Substitua pelo número da versão do Python que você está usando
+
+    - name: Execute Script
+      run: |
+        python main.py
